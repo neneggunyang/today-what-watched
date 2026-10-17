@@ -326,7 +326,13 @@
     .detail-top > div:last-child{display:flex;flex:0 0 auto;align-items:flex-start;gap:8px;white-space:nowrap}
     #detailEdit{flex:0 0 auto;min-width:86px;white-space:nowrap;word-break:keep-all;writing-mode:horizontal-tb}
     #detailClose{flex:0 0 auto;min-width:64px;white-space:nowrap}
-    @media(max-width:600px){.detail-top{gap:8px}.detail-top > div:last-child{gap:6px}}
+    @media(max-width:600px){
+      .detail-top{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin-bottom:16px}
+      .detail-top > div:first-child{width:100%;flex:0 0 auto;min-width:0}
+      .detail-top > div:last-child{width:100%;justify-content:flex-end;gap:8px;order:2}
+      #detailTitle{width:100%;font-size:clamp(25px,6.2vw,34px);line-height:1.28;overflow-wrap:break-word;word-break:normal}
+      #detailEdit,#detailClose{min-height:44px}
+    }
     .detail-hero{width:100%;max-height:390px;object-fit:contain;background:#141716;border-radius:14px;margin-bottom:14px}
     .detail-section{border-top:1px solid var(--line);padding-top:16px;margin-top:18px}
     .detail-section h3{margin:0 0 10px;font-size:16px}
@@ -429,6 +435,80 @@
     .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 520px) { .stats-grid { grid-template-columns: 1fr; } }
+
+
+    /* Mobile header: keep the app title and account actions on one line. */
+    @media (max-width: 520px) {
+      .topbar {
+        height: 54px;
+        padding: 0 8px;
+        gap: 4px;
+        justify-content: space-between;
+      }
+      .brand {
+        min-width: 0;
+        flex: 0 1 auto;
+        gap: 5px;
+        font-size: clamp(13px, 3.6vw, 15px);
+        white-space: nowrap;
+        letter-spacing: -.045em;
+      }
+      .brand-mark {
+        width: 29px;
+        height: 29px;
+      }
+      .brand > span {
+        white-space: nowrap;
+        overflow: visible;
+        word-break: keep-all;
+      }
+      .topbar-right {
+        flex: 0 0 auto;
+        gap: 4px;
+        min-width: 0;
+      }
+      .topbar .btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        word-break: keep-all;
+        padding: 3px 4px;
+        min-height: 24px;
+        font-size: clamp(8px, 2.25vw, 9px);
+        line-height: 1.05;
+        letter-spacing: -.035em;
+      }
+    }
+
+
+    /* Mobile archive cards: reserve space for thumbnails and keep long titles from collapsing the layout. */
+    @media (max-width: 600px) {
+      .video-item {
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        align-items: start;
+        gap: 10px;
+      }
+      .video-item > .video-thumb,
+      .video-item > .video-thumb-link { grid-column: 1; grid-row: 1; width: 88px; }
+      .video-item > .video-meta { grid-column: 2; grid-row: 1; width: 100%; min-width: 0; }
+      .video-item .video-title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        overflow-wrap: normal;
+        word-break: normal;
+        text-overflow: ellipsis;
+        line-height: 1.4;
+      }
+      .video-item > .video-actions {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: flex-end;
+        margin-left: 0;
+        width: 100%;
+      }
+    }
 </style>
 </head>
 <body>
