@@ -685,7 +685,7 @@
         </div>
         <div class="field"><label for="videoUrl">영상 URL (선택)</label><input id="videoUrl" type="url" placeholder="YouTube 영상 링크를 붙여 넣어 봐"><div id="thumbnailPreview" class="thumbnail-preview"><img id="thumbnailPreviewImage" alt="영상 썸네일 미리보기"><p id="thumbnailPreviewMessage">링크에서 썸네일을 찾았어.</p></div><p class="muted" style="font-size:12px;margin:7px 0 0">YouTube는 바로 표시돼. TikTok·X·Instagram은 공개 정보 조회를 시도하지만, 플랫폼 제한에 따라 썸네일이 표시되지 않을 수 있어.</p></div>
         <div class="field"><label for="videoDuration">러닝타임 (재생시간)</label><div style="display:flex;gap:8px;align-items:stretch"><input id="videoDuration" maxlength="8" inputmode="numeric" placeholder="예: 32:45 또는 1:32:45" aria-describedby="videoDurationHelp" style="flex:1;min-width:0"><button id="fetchYoutubeDuration" class="btn btn-secondary" type="button" style="white-space:nowrap">유튜브 시간 가져오기</button></div><p id="videoDurationHelp" class="muted" style="font-size:12px;margin:6px 0 0">유튜브 링크를 입력한 뒤 자동 조회를 눌러. 조회할 수 없으면 직접 입력해도 돼. 형식: 분:초 또는 시:분:초</p><p id="youtubeDurationMessage" class="muted" role="status" style="font-size:12px;margin:6px 0 0"></p></div>
-        <div class="field"><label for="videoRating">별점 (선택)</label><select id="videoRating"><option value="">평가하지 않음</option><option value="0.5">☆ 0.5점</option><option value="1">★ 1점</option><option value="1.5">★☆ 1.5점</option><option value="2">★★ 2점</option><option value="2.5">★★☆ 2.5점</option><option value="3">★★★ 3점</option><option value="3.5">★★★☆ 3.5점</option><option value="4">★★★★ 4점</option><option value="4.5">★★★★☆ 4.5점</option><option value="5">★★★★★ 5점</option></select><p class="muted" style="font-size:12px;margin:6px 0 0">평가가 필요 없는 영상은 비워 둬도 돼.</p></div><div class="field"><label for="videoMemo">메모 (선택)</label><textarea id="videoMemo" rows="3" placeholder="감상, 기억할 부분, 나중에 볼 타임스탬프 등"></textarea></div><div class="modal-grid"><div class="field"><label for="videoWatchedOn">본 날짜 (선택)</label><input id="videoWatchedOn" type="date"><p class="muted" style="font-size:12px">영상 다이어리에 표시할 날짜야.</p></div><div class="field"><label for="videoTags">해시태그 (선택)</label><input id="videoTags" placeholder="#힐링, #작업용, #다시보기"><p class="muted" style="font-size:12px">쉼표 또는 공백으로 구분해도 돼.</p></div></div><div class="field"><label for="videoReview">감상 기록 (선택)</label><textarea id="videoReview" rows="4" placeholder="이 영상을 보고 든 생각, 기억하고 싶은 점..."></textarea></div>
+        <div class="field"><label for="videoRating">별점 (선택)</label><select id="videoRating"><option value="">평가하지 않음</option><option value="0.5">☆ 0.5점</option><option value="1">★ 1점</option><option value="1.5">★☆ 1.5점</option><option value="2">★★ 2점</option><option value="2.5">★★☆ 2.5점</option><option value="3">★★★ 3점</option><option value="3.5">★★★☆ 3.5점</option><option value="4">★★★★ 4점</option><option value="4.5">★★★★☆ 4.5점</option><option value="5">★★★★★ 5점</option></select><p class="muted" style="font-size:12px;margin:6px 0 0">평가가 필요 없는 영상은 비워 둬도 돼.</p></div><div class="field"><label for="videoMemo">메모 (선택)</label><textarea id="videoMemo" rows="3" placeholder="감상, 기억할 부분, 나중에 볼 타임스탬프 등"></textarea></div><div class="modal-grid"><div class="field"><label for="videoWatchedOn">본 날짜 (선택)</label><div class="watched-date-control" style="position:relative"><input id="videoWatchedOn" type="text" inputmode="numeric" maxlength="8" placeholder="YYYYMMDD (예: 20261021)" autocomplete="off" style="padding-right:48px"><button type="button" id="watchedDateCalendarButton" aria-label="달력에서 날짜 선택" title="달력에서 날짜 선택" style="position:absolute;right:4px;top:4px;bottom:4px;width:40px;border:0;background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer;border-radius:8px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></button><input id="videoWatchedOnCalendar" type="date" aria-label="달력으로 본 날짜 선택" style="position:absolute;right:4px;top:4px;width:40px;height:calc(100% - 8px);opacity:0;cursor:pointer;z-index:2"></div><p class="muted" style="font-size:12px;margin:6px 0 0">YYYYMMDD로 직접 입력하거나 오른쪽 달력 아이콘을 눌러 날짜를 선택해.</p><p id="watchedDateError" class="muted hidden" role="status" style="font-size:12px;margin:4px 0 0">날짜를 YYYYMMDD 형식으로 입력해 줘.</p></div><div class="field"><label for="videoTags">해시태그 (선택)</label><input id="videoTags" placeholder="#힐링, #작업용, #다시보기"><p class="muted" style="font-size:12px">쉼표 또는 공백으로 구분해도 돼.</p></div></div><div class="field"><label for="videoReview">감상 기록 (선택)</label><textarea id="videoReview" rows="4" placeholder="이 영상을 보고 든 생각, 기억하고 싶은 점..."></textarea></div>
         <p id="videoFormMessage" class="form-message" role="status"></p>
         <div class="modal-actions"><button id="cancelVideo" class="btn btn-secondary" type="button">취소</button><button id="saveVideo" class="btn btn-primary" type="submit">저장하기</button></div>
       </form>
@@ -755,6 +755,43 @@
       const offset = date.getTimezoneOffset() * 60000;
       return new Date(date.getTime() - offset).toISOString().slice(0,16);
     }
+    function setWatchedDate(value = "") {
+      const iso = value && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : "";
+      $("videoWatchedOn").value = iso ? iso.replaceAll("-", "") : "";
+      $("videoWatchedOnCalendar").value = iso;
+      $("watchedDateError").classList.add("hidden");
+    }
+    function getWatchedDate() {
+      const raw = $("videoWatchedOn").value.trim();
+      if (!raw) return "";
+      if (!/^\d{8}$/.test(raw)) return null;
+      const iso = `${raw.slice(0,4)}-${raw.slice(4,6)}-${raw.slice(6,8)}`;
+      const d = new Date(`${iso}T00:00:00`);
+      if (Number.isNaN(d.getTime()) || d.toISOString().slice(0,10) !== iso) return null;
+      return iso;
+    }
+    $("watchedDateCalendarButton").addEventListener("click", () => {
+      const picker = $("videoWatchedOnCalendar");
+      const iso = getWatchedDate();
+      if (iso) picker.value = iso;
+      if (typeof picker.showPicker === "function") {
+        try { picker.showPicker(); } catch (_) { picker.focus(); picker.click(); }
+      } else { picker.focus(); picker.click(); }
+    });
+    $("videoWatchedOnCalendar").addEventListener("change", () => {
+      const iso = $("videoWatchedOnCalendar").value;
+      if (iso) $("videoWatchedOn").value = iso.replaceAll("-", "");
+      $("watchedDateError").classList.add("hidden");
+    });
+    $("videoWatchedOn").addEventListener("input", () => {
+      $("watchedDateError").classList.add("hidden");
+      const raw = $("videoWatchedOn").value.trim();
+      if (/^\d{8}$/.test(raw)) {
+        const iso = `${raw.slice(0,4)}-${raw.slice(4,6)}-${raw.slice(6,8)}`;
+        const d = new Date(`${iso}T00:00:00`);
+        if (!Number.isNaN(d.getTime()) && d.toISOString().slice(0,10) === iso) $("videoWatchedOnCalendar").value = iso;
+      }
+    });
     function formatDate(value, options = {year:"numeric",month:"short",day:"numeric"}) {
       if (!value) return "날짜 없음";
       return new Date(value).toLocaleDateString("ko-KR", options);
@@ -1449,7 +1486,7 @@
 
     function openModal(id) { $(id).classList.remove("hidden"); }
     function closeModal(id) { $(id).classList.add("hidden"); }
-    function resetVideoForm() { editingVideoId=null; $("videoForm").reset(); $("youtubeDurationMessage").textContent=""; $("videoStatus").value="watching"; $("videoWatchedOn").value=""; $("videoTags").value=""; $("videoReview").value=""; fillGenreCategorySelect(); $("videoCustomGenre").value=""; setMessage("videoFormMessage",""); updateThumbnailPreview(); }
+    function resetVideoForm() { editingVideoId=null; $("videoForm").reset(); $("youtubeDurationMessage").textContent=""; $("videoStatus").value="watching"; const today=new Date(); const todayISO=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,"0")}-${String(today.getDate()).padStart(2,"0")}`; setWatchedDate(todayISO); $("videoTags").value=""; $("videoReview").value=""; fillGenreCategorySelect(); $("videoCustomGenre").value=""; setMessage("videoFormMessage",""); updateThumbnailPreview(); }
     function openVideoModal() {
       if (!currentUser) return;
       resetVideoForm(); $("videoModalTitle").textContent="영상 등록"; $("saveVideo").textContent="저장하기";
@@ -1476,7 +1513,7 @@
       $("youtubeDurationMessage").textContent = video.duration_seconds == null ? "" : "저장된 러닝타임이야.";
       updateThumbnailPreview();
       $("videoMemo").value = cleanMemo(video.memo);
-      $("videoWatchedOn").value = video.watched_on || "";
+      setWatchedDate(video.watched_on || "");
       $("videoTags").value = formatTagsInput(video.tags || "");
       $("videoReview").value = video.review || "";
       $("videoRating").value = getRating(video)==null ? "" : String(getRating(video));
@@ -1531,7 +1568,13 @@
       }
       const durationSeconds = parseDuration($("videoDuration").value);
       if (Number.isNaN(durationSeconds)) { setMessage("videoFormMessage", "러닝타임은 분:초 또는 시:분:초 형식으로 입력해 줘. 예: 32:45", "error"); $("videoDuration").focus(); return; }
-      const payload={user_id:currentUser.id,title,platform_id:$("videoPlatform").value?Number($("videoPlatform").value):null,genre:currentGenreValue()||"직접 분류::미분류",channel_name:$("videoChannel").value.trim()||null,status:$("videoStatus").value,url:url||null,duration_seconds:durationSeconds,memo:memoWithRating($("videoMemo").value.trim(),$("videoRating").value),watched_on:$("videoWatchedOn").value || null,tags:normalizeTags($("videoTags").value),review:$("videoReview").value.trim() || null};
+      const watchedDate = getWatchedDate();
+      if (watchedDate === null) {
+        $("watchedDateError").classList.remove("hidden");
+        $("videoWatchedOn").focus();
+        return;
+      }
+      const payload={user_id:currentUser.id,title,platform_id:$("videoPlatform").value?Number($("videoPlatform").value):null,genre:currentGenreValue()||"직접 분류::미분류",channel_name:$("videoChannel").value.trim()||null,status:$("videoStatus").value,url:url||null,duration_seconds:durationSeconds,memo:memoWithRating($("videoMemo").value.trim(),$("videoRating").value),watched_on:watchedDate || null,tags:normalizeTags($("videoTags").value),review:$("videoReview").value.trim() || null};
       $("saveVideo").disabled=true; setMessage("videoFormMessage","저장 중...");
       try{
         let error;
@@ -1557,7 +1600,7 @@
     $("diaryPrev").addEventListener("click",()=>{diaryMonthCursor.setMonth(diaryMonthCursor.getMonth()-1);showDiaryCalendar();});
     $("diaryNext").addEventListener("click",()=>{diaryMonthCursor.setMonth(diaryMonthCursor.getMonth()+1);showDiaryCalendar();});
     $("diaryBackToCalendar").addEventListener("click",showDiaryCalendar);
-    $("diaryAddVideo").addEventListener("click",()=>{openVideoModal();$("videoWatchedOn").value=diarySelectedDate;});
+    $("diaryAddVideo").addEventListener("click",()=>{openVideoModal();setWatchedDate(diarySelectedDate);});
     $("diaryChooseCover").addEventListener("click",openDiaryCoverPicker);
     $("diaryCoverClose").addEventListener("click",closeDiaryCoverPicker);
     $("diaryCoverCancel").addEventListener("click",closeDiaryCoverPicker);
